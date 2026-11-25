@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C5C55048-D6EF-47BC-8050-009AC061C90B}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtBuildConfig>release</QtBuildConfig>
+    <QtDeploy>true</QtDeploy>
+    <QtInstall>Qt5.15.2</QtInstall>
+    <QtModules>core;opengl;gui;widgets;winextras;concurrent;3dcore;3danimation;3dextras;3dinput;3dlogic;3drender;openglextensions;charts</QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <CopyCppRuntimeToOutputDir>false</CopyCppRuntimeToOutputDir>
+    <QtInstallDir Condition="'$(QtSdkRoot)' != ''">$(QtSdkRoot)</QtInstallDir>
+    <QtToolsPath Condition="'$(QtSdkRoot)' != ''">$(QtSdkRoot)\bin</QtToolsPath>
+    <IncludePath>$(Open3DWeightedRoot)\include;$(PythonRoot)\include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\include;$(oneTBBIncludeDir);$(IncludePath)</IncludePath>
+    <LibraryPath>$(Open3DWeightedRoot)\lib;$(PythonRoot)\libs;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\lib\x64;$(oneTBBLibDir);$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgApplocalDeps>true</VcpkgApplocalDeps>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PreprocessorDefinitions>NOMINMAX;GLOG_NO_ABBREVIATED_SEVERITIES;GLOG_USE_GLOG_EXPORT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Open3D.lib;python310.lib;Base.lib;Estimator.lib;Geometry.lib;Scene.lib;Feature.lib;Workflow.lib;SIFTGPU.lib;VLFeat.lib;cublas.lib;cublasLt.lib;cuda.lib;cudadevrt.lib;cudart.lib;cudart_static.lib;cufft.lib;cufftw.lib;cufilt.lib;curand.lib;cusolver.lib;cusolverMg.lib;cusparse.lib;nppc.lib;nppial.lib;nppicc.lib;nppidei.lib;nppif.lib;nppig.lib;nppim.lib;nppist.lib;nppisu.lib;nppitc.lib;npps.lib;nvblas.lib;nvjpeg.lib;nvml.lib;nvptxcompiler_static.lib;nvrtc-builtins_static.lib;nvrtc.lib;nvrtc_static.lib;OpenCL.lib;$(QtInstallDir)\lib\Qt5Gui.lib;$(QtInstallDir)\lib\Qt5Core.lib;$(QtInstallDir)\lib\Qt5Widgets.lib;$(QtInstallDir)\lib\qtmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);..\Base\$(Platform)\$(Configuration);..\Estimator\$(Platform)\$(Configuration);..\Geometry\$(Platform)\$(Configuration);..\Scene\$(Platform)\$(Configuration);..\Feature\$(Platform)\$(Configuration);..\Workflow\$(Platform)\$(Configuration);..\..\thirdparty\SIFTGPU\$(Platform)\$(Configuration);..\..\thirdparty\VLFeat\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Colormap.cpp" />
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="ImageListWidget.cpp" />
+    <ClCompile Include="ImageViewer.cpp" />
+    <ClCompile Include="LogWidget.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="MatchMatrixWidget.cpp" />
+    <ClCompile Include="ModelViewerWidget.cpp" />
+    <ClCompile Include="Painter.cpp" />
+    <ClCompile Include="PointLinePainter.cpp" />
+    <ClCompile Include="ProjectWidget.cpp" />
+    <ClCompile Include="ReconstructionManagerWidget.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resource.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\thirdparty\SIFTGPU\SIFTGPU.vcxproj">
+      <Project>{a19d6327-4e8c-47d2-b61d-72663301f04b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\thirdparty\VLFeat\VLFeat.vcxproj">
+      <Project>{f425b667-4f52-417b-96d5-5efea56605bb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Base\Base.vcxproj">
+      <Project>{bdcb1232-584e-43d8-b83e-2ad348104412}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Estimator\Estimator.vcxproj">
+      <Project>{9fc54064-0116-4b3d-8cc0-496c30c5f2e3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Feature\Feature.vcxproj">
+      <Project>{8b96df56-581c-4853-ace9-2dae37ec4b2c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geometry\Geometry.vcxproj">
+      <Project>{beb1e62c-3eba-4ee4-8066-09d081d7e9a5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Scene\Scene.vcxproj">
+      <Project>{846469cb-8c73-4946-b636-1d7b21f46b92}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Workflow\Workflow.vcxproj">
+      <Project>{9dde63fa-ad61-4ef6-aa25-d0c33b2493f1}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LogWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Colormap.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="Painter.h" />
+    <QtMoc Include="ModelViewerWidget.h" />
+    <QtMoc Include="MatchMatrixWidget.h" />
+    <QtMoc Include="ImageViewer.h" />
+    <ClInclude Include="PointLinePainter.h" />
+    <QtMoc Include="ProjectWidget.h" />
+    <QtMoc Include="ImageListWidget.h" />
+    <ClInclude Include="ReconstructionManagerWidget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\thirdparty\Open3D-weightedTSDF\Open3DWeightedTSDF.vcxproj">
+      <Project>{E65D7186-6707-4E4C-BDF0-52D478E084B9}</Project>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetConfiguration>Configuration=Release</SetConfiguration>
+      <SetPlatform>Platform=x64</SetPlatform>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="ManifestEigenInclude">
+    <ClCompile>
+      <PreprocessorDefinitions>FMT_HEADER_ONLY=0;FMT_USE_WINDOWS_H=0;FMT_STRING_ALIAS=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(VcpkgInstalledDir)$(VcpkgTriplet)\include\eigen3;$(Open3DWeightedRoot)\include\open3d\3rdparty;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <Target Name="CopyWeightedOpen3DRuntime" AfterTargets="Build" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <ItemGroup>
+      <WeightedOpen3DRuntime Include="$(Open3DWeightedRoot)\bin\*.dll" />
+    </ItemGroup>
+    <Error Condition="!Exists('$(Open3DWeightedRoot)\bin\Open3D.dll')" Text="Modified Open3D.dll is missing. Build the Open3DWeightedTSDF project first." />
+    <Copy SourceFiles="@(WeightedOpen3DRuntime)" DestinationFolder="$(OutDir)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="DeployUiRuntime" AfterTargets="CopyWeightedOpen3DRuntime" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PropertyGroup>
+      <DsrRuntimeTriplet Condition="'$(VcpkgTriplet)' != ''">$(VcpkgTriplet)</DsrRuntimeTriplet>
+      <DsrRuntimeTriplet Condition="'$(DsrRuntimeTriplet)' == ''">x64-windows</DsrRuntimeTriplet>
+      <DsrVcpkgBinDirectory Condition="'$(VcpkgCurrentInstalledDir)' != '' and Exists('$(VcpkgCurrentInstalledDir)bin')">$(VcpkgCurrentInstalledDir)bin</DsrVcpkgBinDirectory>
+      <DsrVcpkgBinDirectory Condition="'$(DsrVcpkgBinDirectory)' == '' and '$(VcpkgInstalledDir)' != '' and Exists('$(VcpkgInstalledDir)$(DsrRuntimeTriplet)\bin')">$(VcpkgInstalledDir)$(DsrRuntimeTriplet)\bin</DsrVcpkgBinDirectory>
+      <DsrVcpkgBinDirectory Condition="'$(DsrVcpkgBinDirectory)' == ''">$(VcpkgRoot)\installed\$(DsrRuntimeTriplet)\bin</DsrVcpkgBinDirectory>
+      <DsrRuntimeCMake Condition="'$(DsrRuntimeCMake)' == ''">cmake</DsrRuntimeCMake>
+      <DsrDumpbinExecutable Condition="'$(DsrDumpbinExecutable)' == ''">$(VCToolsInstallDir)bin\Hostx64\x64\dumpbin.exe</DsrDumpbinExecutable>
+    </PropertyGroup>
+    <Exec Command="&quot;$(DsrRuntimeCMake)&quot; &quot;-DUI_EXECUTABLE=$(TargetPath)&quot; &quot;-DOUTPUT_DIRECTORY=$(OutDir)\.&quot; &quot;-DVCPKG_BIN_DIRECTORY=$(DsrVcpkgBinDirectory)\.&quot; &quot;-DPYTHON_DIRECTORY=$(PythonRoot)\.&quot; &quot;-DCUDA_DIRECTORY=$(CudaToolkitDir)\.&quot; &quot;-DDUMPBIN_EXE=$(DsrDumpbinExecutable)&quot; &quot;-DSETTINGS_SOURCE=$(ProjectDir)..\settings.ini&quot; -P &quot;$(ProjectDir)..\..\scripts\deploy_runtime.cmake&quot;" />
+  </Target>
+</Project>

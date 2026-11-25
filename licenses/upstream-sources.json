@@ -1,0 +1,67 @@
+[
+  {
+    "component": "Murre",
+    "url": "https://github.com/zju3dv/Murre/blob/main/LICENSE",
+    "licenseBlobSha": "95c1fb37d425aaaf737bec1ba575d0a5fe7dc76f",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/zju3dv/Murre",
+    "local": "licenses/upstream/Murre.LICENSE",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "MoGe",
+    "url": "https://github.com/microsoft/MoGe/blob/main/LICENSE",
+    "licenseBlobSha": "3458b5ccd398afed340e17a4d0615c9a8666bb5d",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/microsoft/MoGe",
+    "local": "licenses/upstream/MoGe.LICENSE",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "PriorDepthAnything",
+    "url": "https://github.com/SpatialVision/Prior-Depth-Anything/blob/main/LICENSE",
+    "licenseBlobSha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/SpatialVision/Prior-Depth-Anything",
+    "local": "licenses/upstream/PriorDepthAnything.LICENSE",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "PixelPerfectDepth",
+    "url": "https://github.com/gangweix/pixel-perfect-depth/blob/main/LICENSE",
+    "licenseBlobSha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/gangweix/pixel-perfect-depth",
+    "local": "licenses/upstream/PixelPerfectDepth.LICENSE",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "DepthAnything3",
+    "url": "https://github.com/ByteDance-Seed/Depth-Anything-3/blob/main/LICENSE",
+    "licenseBlobSha": "a2fa36578f5094f56f4b0ec57e70eb30aced4519",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/ByteDance-Seed/depth-anything-3",
+    "local": "licenses/upstream/DepthAnything3.LICENSE",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "VLFeat",
+    "url": "https://github.com/vlfeat/vlfeat/blob/v0.9.20/COPYING",
+    "local": "thirdparty/VLFeat/COPYING"
+  },
+  {
+    "component": "DepthAnythingV2",
+    "url": "https://github.com/DepthAnything/Depth-Anything-V2/blob/main/LICENSE",
+    "local": "licenses/upstream/DepthAnythingV2.LICENSE",
+    "note": "Current official reference only; local copied source/checkpoint revision not established. Weights and embedded components may have separate terms.",
+    "repository": "https://github.com/DepthAnything/Depth-Anything-V2",
+    "licenseBlobSha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "retrieved": "2026-11-25"
+  },
+  {
+    "component": "GPL-3.0",
+    "url": "https://github.com/gcc-mirror/gcc/blob/master/COPYING3",
+    "local": "LICENSE",
+    "note": "Unmodified FSF GPLv3 text."
+  }
+]

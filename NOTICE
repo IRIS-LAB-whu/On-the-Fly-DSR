@@ -1,0 +1,10 @@
+On-the-FlyDSR
+Copyright (c) 2026 the On-the-FlyDSR contributors.
+
+Original contributions in this project are made available under GPL-3.0-or-later (see LICENSE), subject to the contributors' authority over those contributions. Existing third-party code, model weights, assets and dependencies retain their original copyright notices and license terms. This notice does not relicense third-party works.
+
+The complete current distribution is not asserted to be uniformly GPL-compatible or unrestricted open source: the bundled SiftGPU source contains an educational/research/non-profit restriction; the precise MaxFlow source license still needs confirmation. See THIRD_PARTY_NOTICES.md before publishing a combined source or binary release.
+
+Based on On-the-Fly SfM (https://github.com/sygant/onthefly).
+Copyright (c) 2025, IRIS-LAB whu.
+Original SfM code retains its BSD-3-Clause license, reproduced in licenses/upstream/On-the-Fly-SfM.LICENSE.

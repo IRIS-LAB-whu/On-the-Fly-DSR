@@ -1,0 +1,964 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "on-the-fly-dsr",
+  "version-string": "0.1.0",
+  "description": "On-the-fly dense scene reconstruction; external CUDA 11.8, Qt, Python and modified Open3D are required.",
+  "supports": "windows & x64",
+  "builtin-baseline": "7066011e27c97dbcfff739be2b69b592a41fc74a",
+  "dependencies": [
+    "boost-algorithm",
+    "boost-assert",
+    "boost-config",
+    "boost-filesystem",
+    "boost-format",
+    "boost-property-tree",
+    "cgal",
+    {
+      "name": "ceres",
+      "default-features": false,
+      "features": [
+        "cuda",
+        "eigensparse",
+        "lapack",
+        "suitesparse",
+        "tools"
+      ]
+    },
+    "eigen3",
+    "faiss",
+    "flann",
+    "freeimage",
+    "glog",
+    "glew",
+    "tbb",
+    "sqlite3"
+  ],
+  "overrides": [
+    {
+      "name": "boost-accumulators",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-algorithm",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-align",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-any",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-array",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-asio",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-assert",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-assign",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-atomic",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-beast",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-bimap",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-bind",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-build",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-callable-traits",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-chrono",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-circular-buffer",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-compatibility",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-compute",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-concept-check",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-config",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-container",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-container-hash",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-context",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-contract",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-conversion",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-convert",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-core",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-coroutine",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-coroutine2",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-crc",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-date-time",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-describe",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-detail",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-dll",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-dynamic-bitset",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-endian",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-exception",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-fiber",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-filesystem",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-flyweight",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-foreach",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-format",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-function",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-function-types",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-functional",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-fusion",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-geometry",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-gil",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-graph",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-graph-parallel",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-hana",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-heap",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-histogram",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-hof",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-icl",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-integer",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-interprocess",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-interval",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-intrusive",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-io",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-iostreams",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-iterator",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-json",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-lambda",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-lambda2",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-leaf",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-lexical-cast",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-local-function",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-locale",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-lockfree",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-log",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-logic",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-math",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-metaparse",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-modular-build-helper",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-move",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-mp11",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-mpi",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-mpl",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-msm",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-multi-array",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-multi-index",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-multiprecision",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-mysql",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-nowide",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-numeric-conversion",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-odeint",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-optional",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-outcome",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-parameter",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-parameter-python",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-pfr",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-phoenix",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-poly-collection",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-polygon",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-pool",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-predef",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-preprocessor",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-process",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-program-options",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-property-map",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-property-map-parallel",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-property-tree",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-proto",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-ptr-container",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-python",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-qvm",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-random",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-range",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-ratio",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-rational",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-regex",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-safe-numerics",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-scope-exit",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-serialization",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-signals2",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-smart-ptr",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-sort",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-spirit",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-stacktrace",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-statechart",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-static-assert",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-static-string",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-stl-interfaces",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-system",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-test",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-thread",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-throw-exception",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-timer",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-tokenizer",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-tti",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-tuple",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-type-erasure",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-type-index",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-type-traits",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-typeof",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-ublas",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-uninstall",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-units",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-unordered",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-url",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-utility",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-uuid",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-variant",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-variant2",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-vcpkg-helpers",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-vmd",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-wave",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-winapi",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-xpressive",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "boost-yap",
+      "version": "1.82.0",
+      "port-version": 1
+    },
+    {
+      "name": "ceres",
+      "version": "2.2.0",
+      "port-version": 2
+    },
+    {
+      "name": "cgal",
+      "version": "6.0.1"
+    },
+    {
+      "name": "eigen3",
+      "version": "3.4.0",
+      "port-version": 2
+    },
+    {
+      "name": "faiss",
+      "version": "1.7.4"
+    },
+    {
+      "name": "flann",
+      "version-date": "2019-04-07",
+      "port-version": 7
+    },
+    {
+      "name": "freeimage",
+      "version": "3.18.0",
+      "port-version": 25
+    },
+    {
+      "name": "glew",
+      "version": "2.2.0",
+      "port-version": 2
+    },
+    {
+      "name": "glog",
+      "version": "0.7.1"
+    },
+    {
+      "name": "tbb",
+      "version": "2021.9.0"
+    },
+    {
+      "name": "sqlite3",
+      "version": "3.40.1",
+      "port-version": 3
+    },
+    {
+      "name": "blas",
+      "version-date": "2023-03-25",
+      "port-version": 0
+    },
+    {
+      "name": "bzip2",
+      "version-semver": "1.0.8",
+      "port-version": 4
+    },
+    {
+      "name": "egl-registry",
+      "version-date": "2022-09-20",
+      "port-version": 0
+    },
+    {
+      "name": "gklib",
+      "version-date": "2022-07-27",
+      "port-version": 2
+    },
+    {
+      "name": "imath",
+      "version": "3.1.5",
+      "port-version": 0
+    },
+    {
+      "name": "jasper",
+      "version": "4.0.0",
+      "port-version": 1
+    },
+    {
+      "name": "jxrlib",
+      "version": "2019.10.9",
+      "port-version": 6
+    },
+    {
+      "name": "lapack",
+      "version-date": "2022-02-22",
+      "port-version": 2
+    },
+    {
+      "name": "lapack-reference",
+      "version": "3.11.0",
+      "port-version": 1
+    },
+    {
+      "name": "lcms",
+      "version": "2.14",
+      "port-version": 0
+    },
+    {
+      "name": "libjpeg-turbo",
+      "version": "2.1.5.1",
+      "port-version": 1
+    },
+    {
+      "name": "liblzma",
+      "version-semver": "5.4.1",
+      "port-version": 1
+    },
+    {
+      "name": "libpng",
+      "version": "1.6.39",
+      "port-version": 1
+    },
+    {
+      "name": "libraw",
+      "version": "0.21.1",
+      "port-version": 0
+    },
+    {
+      "name": "libwebp",
+      "version": "1.3.0",
+      "port-version": 0
+    },
+    {
+      "name": "lz4",
+      "version": "1.9.4",
+      "port-version": 1
+    },
+    {
+      "name": "metis",
+      "version-date": "2022-07-27",
+      "port-version": 0
+    },
+    {
+      "name": "openblas",
+      "version": "0.3.21",
+      "port-version": 2
+    },
+    {
+      "name": "openexr",
+      "version": "3.1.5",
+      "port-version": 1
+    },
+    {
+      "name": "opengl-registry",
+      "version-date": "2022-09-29",
+      "port-version": 1
+    },
+    {
+      "name": "openjpeg",
+      "version": "2.5.0",
+      "port-version": 0
+    },
+    {
+      "name": "tiff",
+      "version": "4.5.0",
+      "port-version": 3
+    },
+    {
+      "name": "zlib",
+      "version": "1.2.13",
+      "port-version": 0
+    },
+    {
+      "name": "zstd",
+      "version": "1.5.4",
+      "port-version": 2
+    },
+    {
+      "name": "freeglut",
+      "version": "3.4.0",
+      "port-version": 0
+    }
+  ]
+}

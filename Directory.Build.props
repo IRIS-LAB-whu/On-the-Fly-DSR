@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <VcpkgManifestRoot>$(MSBuildThisFileDirectory)</VcpkgManifestRoot>
+    <VcpkgEnableManifest Condition="'$(VcpkgEnableManifest)' == ''">true</VcpkgEnableManifest>
+    <VcpkgTriplet>x64-windows</VcpkgTriplet>
+    <VcpkgInstalledDir Condition="'$(VcpkgEnableManifest)' == 'true' and '$(VcpkgInstalledDir)' == ''">$(MSBuildThisFileDirectory)vcpkg_installed\</VcpkgInstalledDir>
+    <PythonRoot Condition="'$(PythonRoot)' == ''">$(MSBuildThisFileDirectory)thirdparty\Python</PythonRoot>
+    <QtSdkRoot Condition="'$(QtSdkRoot)' == ''">$(QTDIR)</QtSdkRoot>
+    <Open3DWeightedRoot Condition="'$(Open3DWeightedRoot)' == ''">$(MSBuildThisFileDirectory)thirdparty\Open3D-weightedTSDF\install</Open3DWeightedRoot>
+    <CudaToolkitCustomDir Condition="'$(CUDA_PATH_V11_8)' != ''">$(CUDA_PATH_V11_8)</CudaToolkitCustomDir>
+    <CudaToolkitCustomDir Condition="'$(CudaToolkitCustomDir)' == ''">$(MSBuildProgramFiles32)\..\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.8\</CudaToolkitCustomDir>
+    <CudaToolkitDir>$(CudaToolkitCustomDir)</CudaToolkitDir>
+    <QtMsBuild Condition="('$(QtMsBuild)' == '' or !Exists('$(QtMsBuild)\Qt.props')) and Exists('$(LocalAppData)\QtMsBuild\Qt.props')">$(LocalAppData)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DsrBuildRoot)' != ''">
+    <OutDir>$(DsrBuildRoot)\bin\</OutDir>
+    <IntDir>$(DsrBuildRoot)\obj\$(MSBuildProjectName)\</IntDir>
+  </PropertyGroup>
+</Project>

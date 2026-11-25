@@ -1,0 +1,20 @@
+#include "../Scene/mesh.h"
+#include "../Scene/ReconstructionManager.h"
+#include "FeedbackTask.h"
+#include "WorkData.h"
+
+void FeedbackTask::run()
+{
+	ReconstructionManager* manager = m_data->getModelManager();
+	m_data->m_feedback_lock = true;
+	std::shared_ptr<RenderData> newRenderData = std::make_shared<RenderData>();
+	GenerateMeshModel(
+		m_data->getPrevRawData(),
+		m_data->getPrevDelaunay(),
+		m_data->getRawData(),
+		*newRenderData);
+	m_data->setPrevRawData();
+	m_data->SetRenderData(newRenderData);
+	m_data->m_feedback_lock = false;
+	emit taskFinished();
+}
