@@ -12,6 +12,10 @@ An online sparse and dense scene reconstruction framework built on [On-the-Fly S
 - Depth alignment and weighted TSDF integration.
 - Bundled modified Open3D source, built as part of the Visual Studio solution.
 
+## Pipeline
+
+![On-the-Fly DSR pipeline](docs/media/main_pipeline.svg)
+
 ## Requirements
 
 The supported configuration is **Windows x64 / Release / CUDA 11.8**.
@@ -116,6 +120,6 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [license sources](licen
 
 ## Related publications
 
-### [SfM on-the-fly: A robust near real-time SfM for spatiotemporally disordered high-resolution imagery from multiple agents](https://www.sciencedirect.com/science/article/pii/S0924271625001388)
+1. Zhan, Z., Yu, Y., Xia, R., Gan, W., Xie, H., Perda, G., Morelli, L., Remondino, F., and Wang, X. (2025). SfM on-the-fly: A robust near real-time SfM for spatiotemporally disordered high-resolution imagery from multiple agents. *ISPRS Journal of Photogrammetry and Remote Sensing*, **224**, 202–221. [doi:10.1016/j.isprsjprs.2025.04.002](https://doi.org/10.1016/j.isprsjprs.2025.04.002).
 
-### [Learning-based Monocular Depth Estimation for Photogrammetric 3D Reconstruction](https://isprs-archives.copernicus.org/articles/XLIX-B2-2026/1345/2026/isprs-archives-XLIX-B2-2026-1345-2026.html)
+2. Dou, C., Yu, Y., Wang, X., and Zhan, Z. (2026). Learning-based Monocular Depth Estimation for Photogrammetric 3D Reconstruction. *The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences*, **XLIX-B2-2026**, 1345–1354. [doi:10.5194/isprs-archives-XLIX-B2-2026-1345-2026](https://doi.org/10.5194/isprs-archives-XLIX-B2-2026-1345-2026).
