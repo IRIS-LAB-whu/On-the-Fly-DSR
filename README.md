@@ -8,7 +8,8 @@ An online sparse and dense scene reconstruction framework built on [On-the-Fly S
 
 ![On-the-Fly DSR pipeline](docs/media/main_pipeline.svg)
 
-https://github.com/user-attachments/assets/770bad2c-2a2b-46e3-a7c1-1b4892a054f
+https://github.com/user-attachments/assets/a0b42c40-42d8-4a89-98d9-d848906dbdc4
+
 
 ## Requirements
 
