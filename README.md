@@ -16,6 +16,8 @@ An online sparse and dense scene reconstruction framework built on [On-the-Fly S
 
 ![On-the-Fly DSR pipeline](docs/media/main_pipeline.svg)
 
+https://github.com/user-attachments/assets/770bad2c-2a2b-46e3-a7c1-1b4892a054f
+
 ## Requirements
 
 The supported configuration is **Windows x64 / Release / CUDA 11.8**.
