@@ -4,14 +4,6 @@
 
 An online sparse and dense scene reconstruction framework built on [On-the-Fly SfM](https://github.com/sygant/onthefly). It combines incremental camera pose estimation, monocular depth prediction, SfM-guided depth alignment, and weighted TSDF fusion using a modified Open3D implementation.
 
-## Features
-
-- Incremental structure from motion and an English Qt interface.
-- SupScene global image retrieval, with optional VGG/NetVLAD retrieval.
-- Six monocular depth backends: Murre, PriorDepthAnything, DepthAnythingV2, DepthAnything3, PixelPerfectDepth, and MoGe.
-- Depth alignment and weighted TSDF integration.
-- Bundled modified Open3D source, built as part of the Visual Studio solution.
-
 ## Pipeline
 
 ![On-the-Fly DSR pipeline](docs/media/main_pipeline.svg)
