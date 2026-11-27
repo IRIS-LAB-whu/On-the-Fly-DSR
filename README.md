@@ -29,18 +29,19 @@ The supported configuration is **Windows x64 / Release / CUDA 11.8**.
 
 ## Downloads
 
-Python environments and model weights are distributed separately and are **not included in this repository**. Google Drive links will be added after the uploads finish.
+The Python environment and image retrieval checkpoints are distributed separately through Google Drive and are **not included in this repository**.
 
 | Asset | Download | Destination |
 | --- | --- | --- |
-| Python environment | Uploading; link pending | Extract directly into `thirdparty/Python/` |
-| SupScene: `dinov2_scpp_supscene_1536.pth` | Uploading; link pending | `scripts/pyscripts/Supscene/checkpoints/` |
-| Depth Anything V2 Large: `depth_anything_v2_vitl.pth` | Official repository below; mirror pending | `scripts/pyscripts/DepthEstimation/DepthAnythingV2/checkpoints/` |
-| Optional VGG/PCA/NetVLAD weights | Uploading; link pending | `scripts/pyscripts/GlobalVGG/models/` |
+| Python environment | [Google Drive](https://drive.google.com/file/d/1ERBA1Y4TpmMwl-q55n_pRF2EQdsBwSoL/view?usp=drive_link) | Extract directly into `thirdparty/Python/` |
+| SupScene: `dinov2_scpp_supscene_1536.pth` | [Checkpoints — Google Drive](https://drive.google.com/drive/folders/1dxRzWBmeBJaE6ZsoDhq-Kt_aBBscgz9G?usp=drive_link) | `scripts/pyscripts/Supscene/checkpoints/` |
+| Optional VGG/PCA/NetVLAD weights | [Checkpoints — Google Drive](https://drive.google.com/drive/folders/1dxRzWBmeBJaE6ZsoDhq-Kt_aBBscgz9G?usp=drive_link) | `scripts/pyscripts/GlobalVGG/models/` |
 
 The default pipeline uses **SupScene + DepthAnythingV2 (vitl)**. The Python directory must directly contain `python.exe`, `python310.dll`, `include`, and `libs`.
 
-Use the original projects for model downloads and method-specific instructions:
+### Monocular depth estimation models
+
+Download depth model weights from the original projects below. These weights are separate from the SupScene/VGG checkpoints linked above.
 
 | Backend | Official repository |
 | --- | --- |
@@ -50,6 +51,8 @@ Use the original projects for model downloads and method-specific instructions:
 | DepthAnything3 | [ByteDance-Seed/depth-anything-3](https://github.com/ByteDance-Seed/depth-anything-3) |
 | PixelPerfectDepth | [gangweix/pixel-perfect-depth](https://github.com/gangweix/pixel-perfect-depth) |
 | MoGe | [microsoft/MoGe](https://github.com/microsoft/MoGe) |
+
+For the default DepthAnythingV2 / vitl configuration, download `depth_anything_v2_vitl.pth` from the DepthAnythingV2 project and place it in `scripts/pyscripts/DepthEstimation/DepthAnythingV2/checkpoints/`.
 
 Match the downloaded weights to the selected adapter and encoder. PixelPerfectDepth also requires the corresponding DA2 or MoGe2 backbone weights. Code and weights can have different licenses; consult each original project and [third-party notices](THIRD_PARTY_NOTICES.md).
 
@@ -110,3 +113,9 @@ Use absolute paths with forward slashes. For interactive use, create a project i
 Original On-the-Fly SfM code retains its [BSD-3-Clause license](licenses/upstream/On-the-Fly-SfM.LICENSE). Project-owned additions are declared under GPL-3.0-or-later; see [LICENSE](LICENSE) and [NOTICE](NOTICE). Third-party code, models, and data retain their respective terms.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [license sources](licenses/upstream-sources.json). Outstanding SiftGPU/MaxFlow license questions and upstream-version checks are documented there; the repository does not claim that every third-party license has been cleared.
+
+## Related publications
+
+### [SfM on-the-fly: A robust near real-time SfM for spatiotemporally disordered high-resolution imagery from multiple agents](https://www.sciencedirect.com/science/article/pii/S0924271625001388)
+
+### [Learning-based Monocular Depth Estimation for Photogrammetric 3D Reconstruction](https://isprs-archives.copernicus.org/articles/XLIX-B2-2026/1345/2026/isprs-archives-XLIX-B2-2026-1345-2026.html)
